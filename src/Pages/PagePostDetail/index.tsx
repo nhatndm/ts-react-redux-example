@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-export default class PageEmployeeDetail extends Component {
+export default class PagePostDetail extends Component {
   render() {
-    return <div>This is employee detail page</div>
+    return <div>This is post detail page</div>;
   }
 }

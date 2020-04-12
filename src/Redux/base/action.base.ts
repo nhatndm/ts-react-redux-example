@@ -1,4 +1,8 @@
-export interface BaseAction<T> {
+import { Error } from './base.type';
+
+interface Action<T> {
   type: T;
-  data?: any;
+  error: Error;
 }
+
+export type BaseAction<T, K> = Action<T> & K;

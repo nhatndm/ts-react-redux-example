@@ -14,11 +14,11 @@ const PostReducer: Reducer<PostState, PostAction> = (
 ) => {
   switch (action.type) {
     case PostTypes.FETCH_POSTS_SUCCESS: {
-      return { ...state, posts: action.data };
+      return { ...state, posts: action.posts };
     }
 
     case PostTypes.FETCH_POSTS_FAILURE: {
-      return { ...state, error: action.data };
+      return { ...state, error: action.error };
     }
 
     default: {

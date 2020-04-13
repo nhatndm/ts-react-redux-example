@@ -1,12 +1,12 @@
-import { PostTypes } from './types';
+import { PostTypes } from './post.actiontype';
 import {
   PostRequest,
   PostsSucess,
   PostFailure,
   PostDetailSucess,
-} from './interface';
+} from './post.interface';
 import { Error } from '../base/base.type';
-import { Post } from './model';
+import { Post } from './post.model';
 
 // FETCH POSTS FLOW
 export const FetchPostRequest = (): PostRequest => {

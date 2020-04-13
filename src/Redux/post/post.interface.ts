@@ -1,13 +1,6 @@
-import { Post } from './model';
-import { PostTypes } from './types';
-import { BaseAction } from '../base/action.base';
-import { Error } from '../base/base.type';
-
-export interface PostState {
-  readonly post: Post;
-  readonly posts: Post[];
-  readonly error: Error;
-}
+import { PostTypes } from './post.actiontype';
+import { PostState } from './post.state';
+import { BaseAction } from '../base/base.action';
 
 export interface PostAction extends BaseAction<PostTypes, PostState> {}
 

@@ -1,7 +1,7 @@
 import { takeEvery, put } from 'redux-saga/effects';
-import { PostTypes } from './types';
-import { PostService } from '../../Services/posts.api';
-import { FetchPostsSuccess, FetchPostFailure } from './action';
+import { PostTypes } from './post.actiontype';
+import { PostService } from '../../Services/post.api';
+import { FetchPostsSuccess, FetchPostFailure } from './post.action';
 
 async function handleFetchPostAPI() {
   try {

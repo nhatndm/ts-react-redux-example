@@ -1,6 +1,7 @@
 import { Reducer } from 'redux';
-import { PostTypes } from './types';
-import { PostAction, PostState } from './interface';
+import { PostTypes } from './post.actiontype';
+import { PostAction } from './post.interface';
+import { PostState } from './post.state';
 
 const initState: PostState = {
   post: {},

@@ -1,5 +1,5 @@
 import { API } from './api';
-import { Post } from '../Redux/posts/model';
+import { Post } from '../Redux/post/post.model';
 import { AxiosResponse } from 'axios';
 
 class PostApi extends API {

@@ -1,5 +1,5 @@
 // POSTS
-import { PostState } from './posts/interface';
+import { PostState } from './post/post.state';
 
 // HISTORY + ROUTER
 import { RouterState } from 'connected-react-router';

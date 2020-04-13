@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { ApplicationState } from '../../Redux/app.state';
 
 // Action
-import { FetchPostRequest } from '../../Redux/posts/action';
+import { FetchPostRequest } from '../../Redux/post/post.action';
 
 // TYPE
 import { ContainerProps, PresentationProps } from './index.type';

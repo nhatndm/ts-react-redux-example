@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 // POSTS
-import { PostReducer } from './posts/reducer';
+import { PostReducer } from './post/post.reducer';
 
 // HISTORY + ROUTER
 import { History } from 'history';

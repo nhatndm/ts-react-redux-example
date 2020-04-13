@@ -1,8 +1,8 @@
 // Post State
-import { PostState } from '../../Redux/posts/interface';
+import { PostState } from '../../Redux/post/post.state';
 
 // TYPE
-import { PostRequest } from '../../Redux/posts/interface';
+import { PostRequest } from '../../Redux/post/post.interface';
 
 type PropsFromState = Pick<PostState, 'posts'>;
 

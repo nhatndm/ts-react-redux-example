@@ -2,23 +2,37 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Application State
-import { ApplicationState } from '../../Redux/app.interface';
+import { ApplicationState } from '../../Redux/app.state';
 
-// Post State
-import { PostState } from '../../Redux/posts/interface';
+// Action
+import { FetchPostRequest } from '../../Redux/posts/action';
 
-type IProps = Pick<PostState, 'posts'>;
+// TYPE
+import { ContainerProps, PresentationProps } from './index.type';
 
-class HomePage extends Component<IProps> {
+// PRESENTATIONAL COMPONENT
+import HomePagePresentation from './index.presentation';
+
+class HomePageContainer extends Component<ContainerProps> {
+  componentDidMount() {
+    this.props.fetchProps();
+  }
+
   render() {
-    return <div>This is Home page</div>;
+    const { posts } = this.props;
+
+    return <HomePagePresentation posts={posts} />;
   }
 }
 
-const mapStateToProps = (rootState: ApplicationState): IProps => {
+const mapStateToProps = (rootState: ApplicationState): PresentationProps => {
   return {
     posts: rootState.posts.posts,
   };
 };
 
-export default connect(mapStateToProps)(HomePage);
+const mapDispatchToProps = {
+  fetchProps: FetchPostRequest,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePageContainer);

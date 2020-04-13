@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { all } from 'redux-saga/effects';
 
 // POSTS
 import { PostReducer } from './posts/reducer';
@@ -13,7 +12,3 @@ export const createRootReducer = (history: History) =>
     posts: PostReducer,
     router: connectRouter(history),
   });
-
-export function* rootSaga() {
-  yield all([]);
-}

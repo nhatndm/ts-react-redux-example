@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
+
+// MODEL
+import { Post } from '../../Redux/post/post.model';
 
 // Application State
 import { ApplicationState } from '../../Redux/app.state';
@@ -7,13 +10,22 @@ import { ApplicationState } from '../../Redux/app.state';
 // Action
 import { FetchPostRequest } from '../../Redux/post/post.action';
 
-// TYPE
-import { ContainerProps, PresentationProps } from './index.type';
-
 // PRESENTATIONAL COMPONENT
 import HomePagePresentation from './index.presentation';
 
-class HomePageContainer extends Component<ContainerProps> {
+type ReactProps = {};
+
+type ReduxProps = {
+  posts: Post[];
+};
+
+type ReduxDispatchProps = {
+  fetchProps: () => void;
+};
+
+type IProps = ReactProps & ReduxProps & ReduxDispatchProps;
+
+class HomePageContainer extends Component<IProps> {
   componentDidMount() {
     this.props.fetchProps();
   }
@@ -25,14 +37,28 @@ class HomePageContainer extends Component<ContainerProps> {
   }
 }
 
-const mapStateToProps = (rootState: ApplicationState): PresentationProps => {
+const mapStateToProps: MapStateToProps<ReduxProps, {}, ApplicationState> = (
+  rootState
+) => {
   return {
     posts: rootState.posts.posts,
   };
 };
 
-const mapDispatchToProps = {
-  fetchProps: FetchPostRequest,
+const mapDispatchToProps: MapDispatchToProps<ReduxDispatchProps, {}> = (
+  dispatch: any
+) => {
+  return {
+    fetchProps: () => dispatch(FetchPostRequest()),
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePageContainer);
+export default connect<
+  ReduxProps,
+  ReduxDispatchProps,
+  ReactProps,
+  ApplicationState
+>(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePageContainer);
